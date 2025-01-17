@@ -61,8 +61,8 @@ target_link_libraries(dxildll PRIVATE
 if (WIN32)
 add_dependencies(dxildll
     ${DXCDependencies}
-    DxcEtw
-    DxcRuntimeEtw
+    #DxcEtw
+    #DxcRuntimeEtw
 )
 else()
 add_dependencies(dxildll
