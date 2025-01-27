@@ -54,8 +54,8 @@ set(SOURCES
   dxcompilerobj.cpp
   dxcvalidator.cpp
   DXCompiler.cpp
-  DXCompiler.rc
-  DXCompiler.def
+  #DXCompiler.rc
+  #DXCompiler.def
   dxcfilesystem.cpp
   dxillib.cpp
   dxcutil.cpp
