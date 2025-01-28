@@ -22,7 +22,7 @@
 #include "dxc/dxcisense.h"
 #include "dxc/dxctools.h"
 #ifdef _WIN32
-#include "dxcetw.h"
+//#include "dxcetw.h"
 #endif
 #include "dxc/DxilContainer/DxcContainerBuilder.h"
 #include "dxillib.h"
@@ -128,10 +128,10 @@ DXC_API_IMPORT HRESULT __stdcall DxcCreateInstance(REFCLSID rclsid, REFIID riid,
   }
 
   HRESULT hr = S_OK;
-  DxcEtw_DXCompilerCreateInstance_Start();
+  //DxcEtw_DXCompilerCreateInstance_Start();
   DxcThreadMalloc TM(nullptr);
   hr = ThreadMallocDxcCreateInstance(rclsid, riid, ppv);
-  DxcEtw_DXCompilerCreateInstance_Stop(hr);
+  //DxcEtw_DXCompilerCreateInstance_Stop(hr);
   return hr;
 }
 
@@ -149,9 +149,9 @@ DXC_API_IMPORT HRESULT __stdcall DxcCreateInstance2(IMalloc *pMalloc,
 #endif // DXC_DISABLE_ALLOCATOR_OVERRIDES
 
   HRESULT hr = S_OK;
-  DxcEtw_DXCompilerCreateInstance_Start();
+  //DxcEtw_DXCompilerCreateInstance_Start();
   DxcThreadMalloc TM(pMalloc);
   hr = ThreadMallocDxcCreateInstance(rclsid, riid, ppv);
-  DxcEtw_DXCompilerCreateInstance_Stop(hr);
+  //DxcEtw_DXCompilerCreateInstance_Stop(hr);
   return hr;
 }

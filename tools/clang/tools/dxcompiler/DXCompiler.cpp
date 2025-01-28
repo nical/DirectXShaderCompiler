@@ -17,7 +17,7 @@
 #include "llvm/Support/FileSystem.h"
 #include "llvm/Support/ManagedStatic.h"
 #ifdef LLVM_ON_WIN32
-#include "dxcetw.h"
+//#include "dxcetw.h"
 #endif
 #include "dxillib.h"
 
@@ -99,13 +99,13 @@ void __attribute__((destructor)) DllShutdown() {
 BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD Reason, LPVOID reserved) {
   BOOL result = TRUE;
   if (Reason == DLL_PROCESS_ATTACH) {
-    EventRegisterMicrosoft_Windows_DXCompiler_API();
-    DxcEtw_DXCompilerInitialization_Start();
-    HRESULT hr = InitMaybeFail();
-    DxcEtw_DXCompilerInitialization_Stop(hr);
-    result = SUCCEEDED(hr) ? TRUE : FALSE;
+    //EventRegisterMicrosoft_Windows_DXCompiler_API();
+    //DxcEtw_DXCompilerInitialization_Start();
+    //HRESULT hr = InitMaybeFail();
+    //DxcEtw_DXCompilerInitialization_Stop(hr);
+    //result = SUCCEEDED(hr) ? TRUE : FALSE;
   } else if (Reason == DLL_PROCESS_DETACH) {
-    DxcEtw_DXCompilerShutdown_Start();
+    //DxcEtw_DXCompilerShutdown_Start();
     DxcSetThreadMallocToDefault();
     ::hlsl::options::cleanupHlslOptTable();
     ::llvm::sys::fs::CleanupPerThreadFileSystem();
@@ -118,8 +118,8 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD Reason, LPVOID reserved) {
     }
     DxcClearThreadMalloc();
     DxcCleanupThreadMalloc();
-    DxcEtw_DXCompilerShutdown_Stop(S_OK);
-    EventUnregisterMicrosoft_Windows_DXCompiler_API();
+    //DxcEtw_DXCompilerShutdown_Stop(S_OK);
+    //EventUnregisterMicrosoft_Windows_DXCompiler_API();
   }
 
   return result;

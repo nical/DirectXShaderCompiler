@@ -51,7 +51,7 @@
 #include "dxc/Support/microcom.h"
 
 #ifdef _WIN32
-#include "dxcetw.h"
+//#include "dxcetw.h"
 #endif
 #include "dxcompileradapter.h"
 #include "dxcshadersourceinfo.h"
@@ -569,10 +569,10 @@ public:
 
       bool isPreprocessing = !opts.Preprocess.empty();
       if (isPreprocessing) {
-        DxcEtw_DXCompilerPreprocess_Start();
+        //DxcEtw_DXCompilerPreprocess_Start();
         bPreprocessStarted = true;
       } else {
-        DxcEtw_DXCompilerCompile_Start();
+        //DxcEtw_DXCompilerCompile_Start();
         bCompileStarted = true;
       }
 
@@ -1252,10 +1252,10 @@ public:
     }
   Cleanup:
     if (bPreprocessStarted) {
-      DxcEtw_DXCompilerPreprocess_Stop(hr);
+      //DxcEtw_DXCompilerPreprocess_Stop(hr);
     }
     if (bCompileStarted) {
-      DxcEtw_DXCompilerCompile_Stop(hr);
+      //DxcEtw_DXCompilerCompile_Stop(hr);
     }
     return hr;
   }
@@ -1277,7 +1277,7 @@ public:
     CComPtr<IDxcResult> pResult;
 
     HRESULT hr = S_OK;
-    DxcEtw_DXCompilerDisassemble_Start();
+    //DxcEtw_DXCompilerDisassemble_Start();
     DxcThreadMalloc TM(m_pMalloc);
     try {
       DefaultFPEnvScope fpEnvScope;
@@ -1322,7 +1322,7 @@ public:
       hr = E_FAIL;
     }
   Cleanup:
-    DxcEtw_DXCompilerDisassemble_Stop(hr);
+    //DxcEtw_DXCompilerDisassemble_Stop(hr);
     return hr;
   }
 
