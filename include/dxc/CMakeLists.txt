@@ -18,7 +18,7 @@ configure_file(
 add_subdirectory(DXIL)
 add_subdirectory(DxilContainer)
 add_subdirectory(Support)
-add_subdirectory(Tracing)
+#add_subdirectory(Tracing)
 
 set(DXC_PUBLIC_HEADERS
     ${CMAKE_CURRENT_BINARY_DIR}/config.h

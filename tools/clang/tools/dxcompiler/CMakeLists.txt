@@ -130,7 +130,7 @@ add_clang_library(dxcompiler SHARED ${SOURCES})
 add_dependencies(dxcompiler TablegenHLSLOptions) 
 if (MSVC)
   # No DxcEtw on non-Windows platforms.
-  add_dependencies(dxcompiler DxcEtw)
+  #add_dependencies(dxcompiler DxcEtw)
 endif()
 target_link_libraries(dxcompiler PRIVATE ${LIBRARIES})
 if (ENABLE_SPIRV_CODEGEN)
