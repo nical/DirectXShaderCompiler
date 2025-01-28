@@ -26,6 +26,8 @@ if (POLICY CMP0051)
   cmake_policy(SET CMP0051 OLD)
 endif()
 
+add_compile_options(-w)
+
 if(CMAKE_VERSION VERSION_LESS 3.1.20141117)
   set(cmake_3_2_USES_TERMINAL)
 else()
